@@ -1,0 +1,16 @@
+name = "selfhiil"
+compatibility_date = "2026-09-01"
+
+# Static site only: Cloudflare serves everything in ./public, no Worker script needed.
+[assets]
+directory = "./public"
+# /ve-self-hiil  ->  /ve-self-hiil/  ->  public/ve-self-hiil/index.html  (same for /en -> /en/)
+html_handling = "auto-trailing-slash"
+not_found_handling = "none"
+
+# Custom domain: add selfhiil.com in the dashboard (Worker > Settings > Domains & Routes)
+# after removing the old A/AAAA record that points at the nginx server.
+# Or uncomment this once that DNS record is gone:
+# routes = [
+#   { pattern = "selfhiil.com", custom_domain = true },
+# ]
